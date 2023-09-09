@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/09 19:48:24 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:07:23 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	main(int argc, char **argv)
 			isascii(*argv[1]), ft_isascii(*argv[1]));
 		printf("5: isprint dona %d i ft_isprint dona %d\n", 
 			isprint(*argv[1]), ft_isprint(*argv[1]));
+		printf("6: toupper dona %d => %c i ft_toupper dona %d => %c\n",
+			toupper(*argv[1]), toupper(*argv[1]),
+			ft_toupper(*argv[1]), ft_toupper(*argv[1]));
 	}
 	return (0);
 }
