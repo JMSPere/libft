@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/09 18:04:49 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/12 21:20:22 by pemateu-         ###   ########.fr       */
+/*   Created: 2023/09/10 11:42:36 by pemateu-          #+#    #+#             */
+/*   Updated: 2023/09/12 21:27:36 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c);
+#include <stdlib.h>
 
-int	ft_isdigit(int c);
+int	ft_strlen(const char *str);
 
-int	ft_isalnum(int c);
+char	*ft_strchr(const char *s, int c)
+{
+	char	*str;
+	char	*aux;
 
-int	ft_isprint(int c);
-
-int	ft_isascii(int c);
-
-int	ft_strlen(const char *c);
-
-int	ft_toupper(int c);
-
-int	ft_tolower(int c);
-
-char	*ft_strchr(const char *s, int c);
-
-char	*ft_strrchr(const char *s, int c);
+	aux = NULL;
+	str = malloc(ft_strlen(s) * sizeof(char));
+	while (*s != '\0' && *s != c)
+	{
+		*str = *s;
+		s++;
+		str++;
+	}
+	if (*s == c)
+		aux = str;
+	while (*s != '\0')
+	{
+		*str = *s;
+		s++;
+		str++;
+	}
+	return (aux);
+}

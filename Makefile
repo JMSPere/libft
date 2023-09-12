@@ -1,5 +1,6 @@
+NAME = libft.h
 CC=gcc
-CFLAGS=-I.
+CFLAGS= -Wall -Wextra -Werror -I.
 DEPS = libft.h
 SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c, %.o, $(SRC))
@@ -10,10 +11,15 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 program: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
-.PHONY: clean lib
+.PHONY: all clean lib re
+
+all:	program
 
 lib:
 	ar -rc libft.a *.o
 
 clean:
 	rm *.o program
+
+re: clean all
+

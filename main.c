@@ -6,12 +6,13 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/09 20:07:23 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:23:35 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include "libft.h"
 
 int	main(int argc, char **argv)
@@ -31,6 +32,13 @@ int	main(int argc, char **argv)
 		printf("6: toupper dona %d => %c i ft_toupper dona %d => %c\n",
 			toupper(*argv[1]), toupper(*argv[1]),
 			ft_toupper(*argv[1]), ft_toupper(*argv[1]));
+		printf("7: tolower dona %d => %c i ft_tolower dona %d => %c\n",
+			tolower(*argv[1]), tolower(*argv[1]),
+			ft_tolower(*argv[1]), ft_tolower(*argv[1]));
+		printf("8: strchr dona %s i ft_strchr dona %s\n",
+			strchr("patata", *argv[1]), ft_strchr("patata", *argv[1]));
+		printf("9: strrchr dona %s i ft_strrchr dona %s\n",
+			strrchr("patata", *argv[1]), ft_strrchr("patata", *argv[1]));
 	}
 	return (0);
 }
