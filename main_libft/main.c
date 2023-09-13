@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/13 16:26:38 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:54:14 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ int	main(int argc, char **argv)
 			strchr("patata", *argv[1]), ft_strchr("patata", *argv[1]));
 		printf("9: strrchr dona %s i ft_strrchr dona %s\n",
 			strrchr("patata", *argv[1]), ft_strrchr("patata", *argv[1]));
+		printf("10: strncmp dona %d i ft_strncmp dona %d\n",
+			strncmp("patata", "patata bona", 11), ft_strncmp("patata", "patata bona", 11));
+		printf("11: strncmp dona %d i ft_strncmp dona %d\n",
+			strncmp("patata", "patata ", 7), ft_strncmp("patata", "patata ", 7));
+		printf("12: strncmp dona %d i ft_strncmp dona %d\n",
+			strncmp("a", "ab", 1), ft_strncmp("a", "ab", 1));
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:31:13 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/13 15:58:02 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:04:59 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,9 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	while (str1[i] != '\0' && str2[i] != '\0'
 		&& str1[i] == str2[i] && i < n)
 		i++;
+	if (((unsigned char)str1[i] - (unsigned char)str2[i]) < 0)
+		return (-1);
+	if (i == n)
+		return (((unsigned char)str1[i - 1] - (unsigned char)str2[i - 1]));
 	return (((unsigned char)str1[i] - (unsigned char)str2[i]));
 }
