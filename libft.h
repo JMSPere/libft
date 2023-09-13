@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:04:49 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/12 21:20:22 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:53:44 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,5 @@ int	ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 
 char	*ft_strrchr(const char *s, int c);
+
+void	ft_putchar(char c);

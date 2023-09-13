@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_substr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 19:14:17 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/13 13:28:10 by pemateu-         ###   ########.fr       */
+/*   Created: 2023/09/13 13:41:25 by pemateu-          #+#    #+#             */
+/*   Updated: 2023/09/13 13:42:29 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-int	ft_isalnum(int c)
+void	ft_putchar(char c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (8);
-	else
-		return (0);
+	write(1, &c, 1);
 }
