@@ -6,9 +6,11 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:04:49 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/13 15:16:46 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:28:48 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int		ft_isalpha(int c);
 

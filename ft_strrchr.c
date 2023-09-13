@@ -6,35 +6,28 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 11:42:36 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/12 21:28:07 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:29:21 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_strlen(const char *str);
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
-	char	*aux;
+	int	count;
 
-	aux = NULL;
-	str = malloc(ft_strlen(s) * sizeof(char));
+	count = 0;
 	while (*s != '\0')
 	{
-		*str = *s;
+		count++;
 		s++;
-		str++;
 	}
-	s--;
-	str--;
-	while (*s != '\0' && *s != c)
+	while (count >= 0 && *s != (char) c)
 	{
+		count--;
 		s--;
-		str--;
 	}
-	if (*s == c)
-		aux = str;
-	return (aux);
+	if (*s == (char) c)
+		return ((char *) s);
+	return (NULL);
 }
