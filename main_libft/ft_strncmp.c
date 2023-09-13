@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/09 18:04:49 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/13 15:28:48 by pemateu-         ###   ########.fr       */
+/*   Created: 2023/09/13 15:31:13 by pemateu-          #+#    #+#             */
+/*   Updated: 2023/09/13 15:58:02 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int		ft_isalpha(int c);
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
+{
+	size_t	i;
 
-int		ft_isdigit(int c);
-
-int		ft_isalnum(int c);
-
-int		ft_isprint(int c);
-
-int		ft_isascii(int c);
-
-int		ft_strlen(const char *c);
-
-int		ft_toupper(int c);
-
-int		ft_tolower(int c);
-
-char	*ft_strchr(const char *s, int c);
-
-char	*ft_strrchr(const char *s, int c);
+	i = 0;
+	while (str1[i] != '\0' && str2[i] != '\0'
+		&& str1[i] == str2[i] && i < n)
+		i++;
+	return (((unsigned char)str1[i] - (unsigned char)str2[i]));
+}
