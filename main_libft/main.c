@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/14 12:48:15 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:53:14 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ int	main(int argc, char **argv)
 		strcpy(str, "patata bona");
 	       	ft_memset(str, '$', 6); 
 		printf(" i ft_memset dona %s\n", str);
+		strcpy(str, "patata bona");
+		printf("%s\n", str);
+		bzero(str, 6);
+		printf("14: bzero dona %s", str);
+		strcpy(str, "patata bona");
+		ft_bzero(str, 6);
+		printf(" i ft_bzero dona %s\n", str);	
 	}
 	return (0);
 }
