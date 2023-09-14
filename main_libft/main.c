@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/13 17:17:28 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:35:29 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		printf("11: strncmp dona %d i ft_strncmp dona %d\n",
 			strncmp("patata", "patata ", 7), ft_strncmp("patata", "patata ", 7));
 		printf("12: strncmp dona %d i ft_strncmp dona %d\n",
-			strncmp("a", "ab", 1), ft_strncmp("a", "ab", 1));
+			strncmp("a", "ab", 0), ft_strncmp("a", "ab", 0));
 	}
 	return (0);
 }
