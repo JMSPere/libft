@@ -2,9 +2,9 @@ CC=gcc
 CFLAGS= -Wall -Wextra -Werror -I.
 NAME = program
 DEPS = libft.h
-SRC = $(wildcard *.c)
-OBJ = $(patsubst %.c, %.o, $(SRC))
-SRC_BONUS = $(wildcard *.c)
+SRC = main.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strchr.c ft_strrchr.c ft_strlen.c ft_tolower.c ft_toupper.c ft_strncmp.c
+OBJ = ${SRC:.c=.o}
+SRC_BONUS = ft_substr_bonus.c
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
 %.o: %.c $(DEPS)
@@ -23,6 +23,7 @@ lib:
 clean:
 	rm -f ${OBJ}
 	rm -f ${OBJ_BONUS}
+	rm -f *.o
 
 fclean: clean
 	rm -f ${NAME}
@@ -30,4 +31,4 @@ fclean: clean
 re: fclean all
 
 bonus: ${OBJ_BONUS} ${OBJ}
-	$(CC) -c -o ${NAME} ${OBJ_BONUS} ${OBJ}
+	$(CC) -o ${NAME} ${OBJ_BONUS} ${OBJ} $(CFLAGS)

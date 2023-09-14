@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 13:41:25 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/13 13:42:29 by pemateu-         ###   ########.fr       */
+/*   Created: 2023/09/14 11:59:30 by pemateu-          #+#    #+#             */
+/*   Updated: 2023/09/14 12:05:17 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+char	*ft_substr(void)
 {
-	write(1, &c, 1);
-}
+	char *str;
+
+	str = NULL;
+	return (str);
+}	
