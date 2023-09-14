@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS= -Wall -Wextra -Werror -I.  
 NAME = libft.a
 DEPS = libft.h
-SRC = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strchr.c ft_strrchr.c ft_strlen.c ft_tolower.c ft_toupper.c ft_strncmp.c
+SRC = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strchr.c ft_strrchr.c ft_strlen.c ft_tolower.c ft_toupper.c ft_strncmp.c ft_memset.c
 OBJ = ${SRC:.c=.o}
 SRC_BONUS = ft_substr_bonus.c
 OBJ_BONUS = ${SRC_BONUS:.c=.o}

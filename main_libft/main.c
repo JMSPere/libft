@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/14 11:35:29 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:48:15 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
+		char *str;
+
+		str = malloc(sizeof("patata bona") * sizeof(char));
+		strcpy(str, "patata bona");
 		printf("1: isalpha dona %d i ft_isalpha dona %d\n", 
 			isalpha(*argv[1]), ft_isalpha(*argv[1]));
 		printf("2: isdigit dona %d i ft_isadigit dona %d\n", 
@@ -45,6 +49,11 @@ int	main(int argc, char **argv)
 			strncmp("patata", "patata ", 7), ft_strncmp("patata", "patata ", 7));
 		printf("12: strncmp dona %d i ft_strncmp dona %d\n",
 			strncmp("a", "ab", 0), ft_strncmp("a", "ab", 0));
+		memset(str, '$', 6);
+		printf("13: memset dona %s", str);
+		strcpy(str, "patata bona");
+	       	ft_memset(str, '$', 6); 
+		printf(" i ft_memset dona %s\n", str);
 	}
 	return (0);
 }

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 11:59:30 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/14 12:22:07 by pemateu-         ###   ########.fr       */
+/*   Created: 2023/09/14 12:20:56 by pemateu-          #+#    #+#             */
+/*   Updated: 2023/09/14 13:40:33 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(void)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*str;
+	unsigned char	*p;
 
-	str = NULL;
-	return (str);
+	p = s;
+	while (n--)
+	{
+		*p++ = (unsigned char)c;
+	}
+	return (s);
 }
