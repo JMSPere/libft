@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/15 17:45:26 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/15 18:04:55 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,12 @@ int	main(int argc, char **argv)
 		strcpy(str, "patata bona");
 		ft_memcpy(str, str2, strlen(str2));
 		printf(" i ft_memcpy dona %s\n", str);
+		strcpy(str, "patata bona");
+		memmove(str, str2, strlen(str2));
+		printf("16: memmove dona %s", str);
+		strcpy(str, "patata bona");
+		ft_memmove(str, str2, strlen(str2));
+		printf(" i ft_memmove dona %s\n", str);
 	}
 	return (0);
 }
