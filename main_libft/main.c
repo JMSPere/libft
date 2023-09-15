@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/14 18:53:14 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:45:26 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		char *str;
+		char *str2;
 
 		str = malloc(sizeof("patata bona") * sizeof(char));
+		str2 = malloc(sizeof("pero no tant") * sizeof(char));
 		strcpy(str, "patata bona");
+		strcpy(str2, "pero no tant");
 		printf("1: isalpha dona %d i ft_isalpha dona %d\n", 
 			isalpha(*argv[1]), ft_isalpha(*argv[1]));
 		printf("2: isdigit dona %d i ft_isadigit dona %d\n", 
@@ -55,12 +58,17 @@ int	main(int argc, char **argv)
 	       	ft_memset(str, '$', 6); 
 		printf(" i ft_memset dona %s\n", str);
 		strcpy(str, "patata bona");
-		printf("%s\n", str);
 		bzero(str, 6);
 		printf("14: bzero dona %s", str);
 		strcpy(str, "patata bona");
 		ft_bzero(str, 6);
 		printf(" i ft_bzero dona %s\n", str);	
+		strcpy(str, "patata bona");
+		memcpy(str, str2, strlen(str2));
+		printf("15: memset dona %s", str);
+		strcpy(str, "patata bona");
+		ft_memcpy(str, str2, strlen(str2));
+		printf(" i ft_memcpy dona %s\n", str);
 	}
 	return (0);
 }
