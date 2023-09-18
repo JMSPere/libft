@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/15 18:04:55 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:55:46 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,18 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
+		int n;
 		char *str;
 		char *str2;
+		int size = 128 * 1024 * 1024;
+		char *dst = (char *)malloc(sizeof(char) * size);
+		char *data = (char *)malloc(sizeof(char) * size);
 
+		memset(data, 'A', size);
+		//memmove(dst, data, size);
+		ft_memmove(dst, data, size);
+
+		n = -3;
 		str = malloc(sizeof("patata bona") * sizeof(char));
 		str2 = malloc(sizeof("pero no tant") * sizeof(char));
 		strcpy(str, "patata bona");
@@ -70,11 +79,12 @@ int	main(int argc, char **argv)
 		ft_memcpy(str, str2, strlen(str2));
 		printf(" i ft_memcpy dona %s\n", str);
 		strcpy(str, "patata bona");
-		memmove(str, str2, strlen(str2));
-		printf("16: memmove dona %s", str);
+		memmove(str + n, str, strlen(str));
+		printf("16: memmove dona %s", str + n);
 		strcpy(str, "patata bona");
-		ft_memmove(str, str2, strlen(str2));
-		printf(" i ft_memmove dona %s\n", str);
+		ft_memmove(str + n, str, strlen(str));
+		printf(" i ft_memmove dona %s\n", str + n);
+		printf("17: memmove dona %s\n", dst);
 	}
 	return (0);
 }
