@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/18 12:55:46 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:20:49 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	main(int argc, char **argv)
 		int n;
 		char *str;
 		char *str2;
-		int size = 128 * 1024 * 1024;
-		char *dst = (char *)malloc(sizeof(char) * size);
-		char *data = (char *)malloc(sizeof(char) * size);
+		//int size = 128 * 1024 * 1024;
+		//char *dst = (char *)malloc(sizeof(char) * size);
+		//char *data = (char *)malloc(sizeof(char) * size);
 
-		memset(data, 'A', size);
+		//memset(data, 'A', size);
 		//memmove(dst, data, size);
-		ft_memmove(dst, data, size);
+		//ft_memmove(dst, data, size);
 
 		n = -3;
 		str = malloc(sizeof("patata bona") * sizeof(char));
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 		strcpy(str, "patata bona");
 		ft_memmove(str + n, str, strlen(str));
 		printf(" i ft_memmove dona %s\n", str + n);
-		printf("17: memmove dona %s\n", dst);
+		//printf("17: memmove dona %s\n", dst);
 	}
 	return (0);
 }
