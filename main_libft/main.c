@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/19 23:54:20 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/20 00:21:52 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		int n;
+		size_t n;
 		char *str;
 		char *str2;
 		//int size = 128 * 1024 * 1024;
@@ -85,6 +85,10 @@ int	main(int argc, char **argv)
 		ft_memmove(str + n, str, strlen(str));
 		printf(" i ft_memmove dona %s\n", str + n);
 		//printf("17: memmove dona %s\n", dst);
+		n = strlcpy(str, "patata bona", 5);
+		printf("17: strlcpy dona %s", str);
+		n = ft_strlcpy(str, "patata bona", 5);
+		printf(" i ft_strlcpy dona %s\n", str);
 	}
 	return (0);
 }
