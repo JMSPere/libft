@@ -6,13 +6,14 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/20 00:21:52 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:30:04 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <bsd/string.h>
 #include "libft.h"
 
 int	main(int argc, char **argv)
@@ -22,6 +23,9 @@ int	main(int argc, char **argv)
 		size_t n;
 		char *str;
 		char *str2;
+		char *src = (char *)"AAAAAAAAA";
+		char dest[30];
+		memset(dest, 'C', 5);
 		//int size = 128 * 1024 * 1024;
 		//char *dst = (char *)malloc(sizeof(char) * size);
 		//char *data = (char *)malloc(sizeof(char) * size);
@@ -85,10 +89,39 @@ int	main(int argc, char **argv)
 		ft_memmove(str + n, str, strlen(str));
 		printf(" i ft_memmove dona %s\n", str + n);
 		//printf("17: memmove dona %s\n", dst);
-		n = strlcpy(str, "patata bona", 5);
-		printf("17: strlcpy dona %s", str);
-		n = ft_strlcpy(str, "patata bona", 5);
-		printf(" i ft_strlcpy dona %s\n", str);
+		for (int i = 0; i < 30; i++)
+		{
+			if (dest[i] == '\0')
+				printf("\\0");
+			else
+				printf("%c", dest[i]);
+		}
+		printf("\n");
+		printf("%ld\n", strlen(dest));
+		n = strlcat(dest, src, -1);
+		printf("17: strlcat dona %lu i %s\n", n, dest);
+		for (int i = 0; i < 30; i++)
+		{
+			if (dest[i] == '\0')
+				printf("\\0");
+			else
+				printf("%c", dest[i]);
+		}
+		printf("\n");
+		printf("%ld\n", strlen(dest));
+		memset(dest, '\0', 30);
+		memset(dest, 'C', 5);
+		printf("%s\n", dest);
+		n = ft_strlcat(dest, src, -1);
+		printf("17: ft_strlcat dona %lu i %s\n", n, dest);
+		for (int i = 0; i < 30; i++)
+		{
+			if (dest[i] == '\0')
+				printf("\\0");
+			else
+				printf("%c", dest[i]);
+		}
+		printf("\n");
 	}
 	return (0);
 }
