@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 02:31:01 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/20 21:07:31 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:48:07 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ int	ft_atoi(const char *nptr)
 		i++;
 	while (nptr[i] == '-' || nptr[i] == '+')
 	{
+		num++;
 		if (nptr[i] == '-')
 			c = c * -1;
 		i++;
 	}
+	if (num > 1)
+		return (0);
+	num = 0;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		num = (num * 10) + (nptr[i] - '0');

@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/20 20:44:26 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:47:09 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,11 @@ int	main(int argc, char **argv)
 		len = 5;
 		printf("18: strnstr dona %s\n", strnstr(big, little, len));
 		printf("i ft_strnstr dona %s\n", ft_strnstr(big, little, len));
+
+		const char	*nptr = "   +1234";
+
+		printf("19: atoi dona %d\n", atoi(nptr));
+		printf(" i ft_atoi dona %d\n", ft_atoi(nptr));
 	}
 	return (0);
 }
