@@ -6,11 +6,19 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:58:20 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/03 13:56:48 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/10/03 23:14:07 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_abs(int a, int b)
+{
+	if (a > b)
+		return (a - b);
+	else
+		return (b - a);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -20,13 +28,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if ((int)start >= ft_strlen(s))
 	{
-		str = (char *) malloc(1);
-		return ("");
+		str = malloc(1);
+		if (!str)
+			return (NULL);
+		ft_strlcpy(str, "", 1);
+		return (str);
 	}
-	if ((int)len >= ft_strlen(s))
-		str = (char *) malloc(ft_strlen(s) * sizeof(char) + 1);
+	if ((int)len <= ft_strlen(&s[start]))
+		str = (char *) malloc(len * sizeof(char)
+				+ 1 * sizeof(char));
 	else
-		str = (char *) malloc(len * sizeof(char) 
+		str = (char *) malloc(ft_strlen(&s[start]) * sizeof(char) 
 				+ 1 * sizeof(char));
 	if (!str)
 		return (NULL);
