@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/02 13:47:09 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:45:47 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,19 @@ int	main(int argc, char **argv)
 
 		printf("19: atoi dona %d\n", atoi(nptr));
 		printf(" i ft_atoi dona %d\n", ft_atoi(nptr));
+
+		char	*newstr;
+
+		newstr = calloc(0, 1);
+		printf("%p\n", newstr);
+
+		const char	*strduplicate = "patata";
+		char	*duplicate;
+
+		duplicate = strdup(strduplicate);
+		printf("20: strdup dona %s", duplicate);
+		duplicate = ft_strdup(strduplicate);
+		printf(" i ft_strdup dona %s\n", duplicate);
 	}
 	return (0);
 }
