@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 12:58:20 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/03 23:56:14 by pemateu-         ###   ########.fr       */
+/*   Created: 2023/10/03 23:21:50 by pemateu-          #+#    #+#             */
+/*   Updated: 2023/10/04 00:23:22 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_inset(char c, char const *set)
 {
-	char	*str;
+	int	i;
 
-	if (ft_strlen(s) == 0)
-		return (NULL);
-	if ((int)start >= ft_strlen(s))
+	i = 0;
+	while (c != set[i] && set[i] != '\0')
+		i++;
+	if (set[i] == '\0')
+		return (0);
+	else
+		return (1);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int				i;
+	unsigned int	start;
+	size_t			len;
+	char			*str;
+
+	i = 0;
+	len = 0;
+	if (ft_strncmp(s1, "", 1) == 0)
 	{
 		str = malloc(1);
 		if (!str)
@@ -26,14 +42,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		ft_strlcpy(str, "", 1);
 		return (str);
 	}
-	if ((int)len <= ft_strlen(&s[start]))
-		str = (char *) malloc(len * sizeof(char)
-				+ 1 * sizeof(char));
-	else
-		str = (char *) malloc(ft_strlen(&s[start]) * sizeof(char) 
-				+ 1 * sizeof(char));
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str, s + start, len + 1);
+	while (ft_inset(s1[i], set) == 1 && s1[i] != '\0')
+		i++;
+	start = (unsigned int)i;
+	i = ft_strlen(s1);
+	while (ft_inset(s1[i - 1], set) == 1 && i > 0)
+		i--;
+	len = i - start;
+	str = ft_substr(s1, start, len);
 	return (str);
 }
