@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 12:58:20 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/03 23:56:14 by pemateu-         ###   ########.fr       */
+/*   Created: 2023/10/03 22:15:18 by pemateu-          #+#    #+#             */
+/*   Updated: 2023/10/03 22:26:19 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
+	int		lens1;
+	int		lens2;
 
-	if (ft_strlen(s) == 0)
-		return (NULL);
-	if ((int)start >= ft_strlen(s))
-	{
-		str = malloc(1);
-		if (!str)
-			return (NULL);
-		ft_strlcpy(str, "", 1);
-		return (str);
-	}
-	if ((int)len <= ft_strlen(&s[start]))
-		str = (char *) malloc(len * sizeof(char)
-				+ 1 * sizeof(char));
-	else
-		str = (char *) malloc(ft_strlen(&s[start]) * sizeof(char) 
-				+ 1 * sizeof(char));
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	str = (char *) malloc(lens1 + lens2 + 1);
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, s + start, len + 1);
+	ft_strlcpy(str, s1, lens1 + 1);
+	ft_strlcat(str, s2, lens1 + lens2 + 1);
 	return (str);
 }

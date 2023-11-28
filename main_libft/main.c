@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/03 12:45:47 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/10/05 00:40:20 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,13 @@ int	main(int argc, char **argv)
 		printf("20: strdup dona %s", duplicate);
 		duplicate = ft_strdup(strduplicate);
 		printf(" i ft_strdup dona %s\n", duplicate);
+
+		char const	*sstr = "  sa patata es ben bona  ";
+		char	**splitstr;
+
+		printf("%s\n", ft_strtrim(sstr, " "));
+		splitstr = ft_split(sstr, ' ');
+		printf("21: %s\n", splitstr[0]);
 	}
 	return (0);
 }
