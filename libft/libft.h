@@ -6,11 +6,12 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:04:49 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/13 14:34:49 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/13 18:22:10 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 
 int		ft_isalpha(int c);
 
@@ -69,3 +70,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+char	*ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+void	ft_putchar_fd(char c, int fd);
