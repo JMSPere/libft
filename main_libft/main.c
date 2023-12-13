@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/05 00:40:20 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:06:04 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,11 @@ int	main(int argc, char **argv)
 		printf("%s\n", ft_strtrim(sstr, " "));
 		splitstr = ft_split(sstr, ' ');
 		printf("21: %s\n", splitstr[0]);
+
+		//int number = -3;
+		char *num_str = ft_itoa(0);
+
+		printf("%s$\n", num_str);
 	}
 	return (0);
 }
