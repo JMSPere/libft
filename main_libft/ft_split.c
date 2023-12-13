@@ -6,52 +6,70 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:08:54 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/05 00:51:04 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:52:35 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+int	words_number(char const *s, char c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && s[i - 1] != c)
+			j++;
+		i++;
+	}
+	return (j + 1);
+}
+
+char	**do_split(char **array, char const *duplicate, char c)
 {
 	int				i;
 	int				j;
 	int				k;
-	int				count;
-	char			*duplicate;
-	char			**array;
 
 	i = 0;
 	j = 0;
 	k = 0;
-	duplicate = ft_strtrim(s, &c);
-	while (duplicate[i] != '\0')
-	{
-		if (duplicate[i] == c)
-			j++;
-		i++;
-	}
-	count = j + 1;
-	array = (char **) malloc ((j + 1) * sizeof(char *) + sizeof(char *));
-	if (!array)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (j < count)
+	while (j < words_number(duplicate, c))
 	{
 		while (duplicate[i] == c && duplicate[i] != '\0')
 			i++;
 		while (duplicate[k + i] != c && duplicate[k + i] != '\0')
 			k++;
 		array[j] = ft_substr(duplicate, (unsigned int)i, (size_t)(k));
-		printf("%s\n", array[j]);
-		if (array[j][k] == '\0')
-			printf("NULL\n");
 		j++;
 		i += k;
 		k = 0;
 	}
 	array[j] = NULL;
+	return (array);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char			*duplicate;
+	char			**array;
+
+	if (ft_strncmp(s, "", 1) == 0)
+	{
+		array = (char **) malloc(sizeof(char *) * 1);
+		array[0] = NULL;
+		return (array);
+	}
+	duplicate = ft_strtrim(s, &c);
+	if (!duplicate)
+		return (NULL);
+	array = (char **) malloc (words_number(duplicate, c) 
+			* sizeof(char *) + sizeof(char *));
+	if (!array)
+		return (NULL);
+	do_split(array, duplicate, c);
 	return (array);
 }
