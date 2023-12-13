@@ -6,15 +6,32 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:33:38 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/13 13:06:04 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:45:36 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <bsd/string.h>
 #include "libft.h"
+
+char	mapi(unsigned int i, char c)
+{
+	static int indexArray[11] = {0};
+
+	if (i > 10 || indexArray[i] == 1)
+		write(1, "wrong index\n", 12);
+	else
+		indexArray[i] = 1;
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
+}
 
 int	main(int argc, char **argv)
 {
@@ -160,6 +177,10 @@ int	main(int argc, char **argv)
 		char *num_str = ft_itoa(0);
 
 		printf("%s$\n", num_str);
+
+		char *somestr = "patata";
+
+		printf("%s\n", ft_strmapi(somestr, &mapi));
 	}
 	return (0);
 }
