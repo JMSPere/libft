@@ -6,13 +6,13 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:08:54 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/14 10:52:40 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:02:32 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	words_number(char const *s, char c)
+static int	words_number(char const *s, char c)
 {
 	int	i;
 	int	j;
@@ -28,7 +28,7 @@ int	words_number(char const *s, char c)
 	return (j + 1);
 }
 
-char	**do_split(char **array, char const *duplicate, char c)
+static char	**do_split(char **array, char const *duplicate, char c)
 {
 	int				i;
 	int				j;
@@ -60,6 +60,8 @@ char	**ft_split(char const *s, char c)
 	if (ft_strncmp(s, "", 1) == 0)
 	{
 		array = (char **) malloc(sizeof(char *) * 1);
+		if (!array)
+			return (NULL);
 		array[0] = NULL;
 		return (array);
 	}

@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:16:02 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/02 14:47:44 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 11:54:41 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	i = 0;
 	if (size < 1 || nmemb < 1)
 	{
-		ptr = malloc(1);
+		ptr = malloc(0);
 		if (!ptr)
 			return (NULL);
 		*ptr = '\0';
