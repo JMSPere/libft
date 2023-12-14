@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:08:54 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/14 10:33:08 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:52:40 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ char	**ft_split(char const *s, char c)
 	if (!array)
 		return (NULL);
 	do_split(array, duplicate, c);
+	free(duplicate);
 	return (array);
 }
