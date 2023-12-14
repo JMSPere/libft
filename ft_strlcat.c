@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 00:44:50 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/14 12:00:54 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:09:15 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	lendst;
-	int	lensrc;
-	int	i;
+	size_t	i;
+	size_t	j;
+	size_t	dstlen;
+	size_t	srclen;
 
 	i = 0;
-	lendst = 0;
-	lensrc = 0;
-	if ((int)size == 0)
-		return (ft_strlen(src));
-	lensrc = ft_strlen(src);
-	lendst = ft_strlen(dst);
-	i = lendst;
-	if ((int)size < 0)
-		size = lendst + lensrc + 1;
-	while (i < (int)size - 1 && &dst[i] != NULL)
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	j = dstlen;
+	while (src[i] && j < (size - 1) && size > 0)
 	{
-		dst[i] = src[i - lendst];
+		dst[j] = src[i];
 		i++;
+		j++;
 	}
-	dst[i] = '\0';
-	if ((int)size < lendst)
-		return (lensrc + size);
-	return (lendst + lensrc);
+	if (!(dst[j] == '\0'))
+		dst[j] = '\0';
+	if (size < dstlen)
+		dstlen = size;
+	return (dstlen + srclen);
 }
