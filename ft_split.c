@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:08:54 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/14 14:01:21 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:35:40 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ static int	words_number(char const *s, char c)
 	return (j);
 }
 
+static void	custom_free(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i] != NULL)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+}
+
 static char	**do_split(char **array, char const *duplicate, char c)
 {
 	int				i;
@@ -60,6 +73,11 @@ static char	**do_split(char **array, char const *duplicate, char c)
 		while (duplicate[k + i] != c && duplicate[k + i] != '\0')
 			k++;
 		array[j] = ft_substr(duplicate, (unsigned int)i, (size_t)(k));
+		if (!array[j])
+		{
+			custom_free(array);
+			return (NULL);
+		}
 		j++;
 		i += k;
 		k = 0;
@@ -73,9 +91,10 @@ char	**ft_split(char const *s, char c)
 	char			*duplicate;
 	char			**array;
 
+	array = NULL;
 	if (ft_strncmp(s, "", 1) == 0)
 	{
-		array = (char **) malloc(sizeof(char *) * 1);
+		array = (char **) malloc(sizeof(char *));
 		if (!array)
 			return (NULL);
 		array[0] = NULL;
@@ -88,7 +107,9 @@ char	**ft_split(char const *s, char c)
 			* sizeof(char *) + sizeof(char *));
 	if (!array)
 		return (NULL);
-	do_split(array, duplicate, c);
+	array = do_split(array, duplicate, c);
+	if (!array)
+		return (NULL);
 	free(duplicate);
 	return (array);
 }
