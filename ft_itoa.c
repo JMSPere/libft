@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:45:12 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/13 13:16:20 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 11:21:29 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,26 @@ int	number_length(int n)
 	return (c);
 }
 
+void	while_loop(int size, int i, char *result, char *str)
+{
+	int	j;
+
+	j = 0;
+	while (i < size)
+	{
+		result[i] = str[size - j - 1];
+		i++;
+		j++;
+	}
+	result[i] = '\0';
+}
+
 char	*revert_numeric_string(char *str, int size)
 {
 	int		i;
-	int		j;
 	char	*result;
 
 	i = 0;
-	j = 0;
 	result = (char *) malloc(size * sizeof(char) + sizeof(char));
 	if (!result)
 		return (NULL);
@@ -43,13 +55,8 @@ char	*revert_numeric_string(char *str, int size)
 		result[i] = '-';
 		i++;
 	}
-	while (i < size)
-	{
-		result[i] = str[size - j - 1];
-		i++;
-		j++;
-	}
-	result[i] = '\0';
+	while_loop(size, i, result, str);
+	free(str);
 	return (result);
 }
 
@@ -70,12 +77,15 @@ char	*ft_itoa(int n)
 	char	*str;
 
 	if (n == -2147483648)
-		return (ft_strjoin(ft_itoa(-21474), ft_itoa(83648)));
+		return (ft_strjoin("-21474", "83648"));
 	i = 0;
 	numlength = number_length(n);
 	str = (char *) malloc(numlength * sizeof(char) + sizeof(char));
 	if (!str)
+	{
+		free(str);
 		return (NULL);
+	}
 	if (n < 0)
 	{
 		n *= -1;
@@ -85,5 +95,6 @@ char	*ft_itoa(int n)
 	if (n < 10 && n >= 0)
 		str[i] = n + '0';
 	build_numeric_string(str, i, n, numlength);
-	return (revert_numeric_string(str, numlength));
+	str = revert_numeric_string(str, numlength);
+	return (str);
 }
