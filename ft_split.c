@@ -6,11 +6,23 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:08:54 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/14 12:02:32 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:58:32 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	check_all_delimitations(char const *s, char c)
+{
+	while (*s != '\0')
+	{
+		while (*s == c)
+			s++;
+		if (*s != c)
+			return (1);
+	}
+	return (0);
+}
 
 static int	words_number(char const *s, char c)
 {
@@ -25,7 +37,11 @@ static int	words_number(char const *s, char c)
 			j++;
 		i++;
 	}
-	return (j + 1);
+	if (!check_all_delimitations(s, c))
+		return (0);
+	if (s)
+		j++;
+	return (j);
 }
 
 static char	**do_split(char **array, char const *duplicate, char c)
