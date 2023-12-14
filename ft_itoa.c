@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:45:12 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/12/14 11:21:29 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:09:22 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ char	*revert_numeric_string(char *str, int size)
 	i = 0;
 	result = (char *) malloc(size * sizeof(char) + sizeof(char));
 	if (!result)
+	{
+		free(str);
 		return (NULL);
+	}
 	if (*str == '-')
 	{
 		result[i] = '-';
@@ -82,10 +85,7 @@ char	*ft_itoa(int n)
 	numlength = number_length(n);
 	str = (char *) malloc(numlength * sizeof(char) + sizeof(char));
 	if (!str)
-	{
-		free(str);
 		return (NULL);
-	}
 	if (n < 0)
 	{
 		n *= -1;
