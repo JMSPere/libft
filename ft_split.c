@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:08:54 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/11/28 18:52:35 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:33:08 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	**ft_split(char const *s, char c)
 	duplicate = ft_strtrim(s, &c);
 	if (!duplicate)
 		return (NULL);
-	array = (char **) malloc (words_number(duplicate, c) 
+	array = (char **) malloc (words_number(duplicate, c)
 			* sizeof(char *) + sizeof(char *));
 	if (!array)
 		return (NULL);

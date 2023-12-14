@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:58:20 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/10/03 23:56:14 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:33:29 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		str = (char *) malloc(len * sizeof(char)
 				+ 1 * sizeof(char));
 	else
-		str = (char *) malloc(ft_strlen(&s[start]) * sizeof(char) 
+		str = (char *) malloc(ft_strlen(&s[start]) * sizeof(char)
 				+ 1 * sizeof(char));
 	if (!str)
 		return (NULL);

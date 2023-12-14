@@ -6,7 +6,7 @@
 /*   By: pemateu- <pemateu-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 23:57:36 by pemateu-          #+#    #+#             */
-/*   Updated: 2023/09/20 00:14:31 by pemateu-         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:48:44 by pemateu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	while ((unsigned char)ps1[i] == (unsigned char)ps2[i] && i < n - 1)
 		i++;
-	if (((unsigned char)ps1[i] - (unsigned char)ps2[i]) < 0)
-		return (-1);
 	return (((unsigned char)ps1[i] - (unsigned char)ps2[i]));
 }
